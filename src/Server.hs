@@ -3,7 +3,7 @@
 {-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TypeFamilies          #-}
 
-module Server (start) where 
+module Server where
 
 import           Yesod
 

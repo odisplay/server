@@ -1,22 +1,12 @@
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TemplateHaskell       #-}
-{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Server where
 
-import           Yesod
+import           Web.Scotty
 
-data HelloWorld = HelloWorld
-
-mkYesod "HelloWorld" [parseRoutes|
-/ HomeR GET
-|]
-
-instance Yesod HelloWorld
-
-getHomeR :: Handler Html
-getHomeR = defaultLayout [whamlet|Hello World!|]
+import           Data.Monoid                    ( mconcat )
 
 start :: IO ()
-start = warp 3000 HelloWorld
+start = scotty 3000 $ get "/:word" $ do
+  beam <- param "word"
+  html $ mconcat ["<h1>iiScotty, ", beam, " me up!</h1>"]

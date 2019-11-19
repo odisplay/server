@@ -26,9 +26,11 @@ library:
   source-dirs: src
   dependencies:
   - scotty
+  - blaze-html
+  - text
 
 executables:
-  server-exe:
+  server:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -36,6 +38,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
+    - scotty
     - server
 
 tests:

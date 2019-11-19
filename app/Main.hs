@@ -1,6 +1,11 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
-import qualified Server                         ( start )
+import           Web.Scotty
+
+import qualified Home.Handler                  as Home
 
 main :: IO ()
-main = Server.start
+main = scotty 3000 $ do
+  get "/" Home.handle

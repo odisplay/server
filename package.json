@@ -7,8 +7,9 @@
     "sass": "^1.23.7"
   },
   "scripts": {
-    "style": "sass ./src/index.scss:static/styles.css --watch",
-    "style:build": "sass ./src/index.scss:static/styles.css --style compressed --no-source-map",
-    "stack": "ls src/**/*.hs | entr -s \"pkill server; stack run &\""
+    "start": "ls src/**/*.hs | entr -s \"pkill server; stack run &\"",
+    "stack:run": "command -v entr 2>&- >&2 && yarn start || stack run",
+    "sass:run": "sass ./src/index.scss:static/styles.css --watch",
+    "sass:build": "sass ./src/index.scss:static/styles.css --style compressed --no-source-map"
   }
 }

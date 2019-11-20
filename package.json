@@ -2,12 +2,13 @@
   "name": "server",
   "repository": "git@github.com:odisplay/server.git",
   "author": "Clément DOUIN <clement.douin@posteo.net>",
-  "license": "MIT",
-  "dependencies": {
+  "license": "BSD3",
+  "devDependencies": {
     "sass": "^1.23.7"
   },
   "scripts": {
     "style": "sass ./src/index.scss:static/styles.css --watch",
-    "style:build": "sass ./src/index.scss:static/styles.css --style compressed --no-source-map"
+    "style:build": "sass ./src/index.scss:static/styles.css --style compressed --no-source-map",
+    "stack": "ls src/**/*.hs | entr -s \"pkill server; stack run &\""
   }
 }

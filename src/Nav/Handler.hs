@@ -1,7 +1,7 @@
-module Home.Handler where
+module Nav.Handler where
 
 import           Shared.View                    ( View )
-import           Home.View                     as Home
+import qualified Home.View                     as Home
 
 handle :: View
 handle = Home.render

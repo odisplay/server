@@ -7,11 +7,8 @@ import           Text.Blaze.Html5        hiding ( style )
 import           Text.Blaze.Html5.Attributes
                                          hiding ( style )
 
-import           Shared.View
-import           Nav.Style                      ( style )
-
 view :: Html
-view = nav $ do
+view = nav ! class_ "nav" $ do
   header $ do
     img ! src "#"
   div $ do

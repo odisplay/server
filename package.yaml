@@ -27,7 +27,6 @@ library:
   dependencies:
   - scotty
   - blaze-html
-  - clay
   - text
 
 executables:

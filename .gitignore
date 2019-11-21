@@ -1,6 +1,6 @@
 .stack-work/
 node_modules/
 server.cabal
-static/*
-!.gitkeep
+static/*.css
+static/*.map
 *~

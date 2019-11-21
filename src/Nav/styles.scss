@@ -1,6 +1,80 @@
 @import "../Shared/theme";
 
-.nav {
+.nav-container {
   background: $black;
   color: $white;
+  display: grid;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  grid-template-rows: 190px 1fr;
+}
+
+.nav-logo {
+  background: $yellow;
+  grid-row: 1;
+}
+
+.nav {
+  grid-row: 2;
+}
+
+@mixin item {
+  align-items: center;
+  border-left: 3px solid transparent;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin: 20px 0 0 0;
+  padding: 10px 30px;
+  transition-duration: 200ms;
+  transition-property: background, border;
+
+  &:hover {
+    background: rgba($white, 0.1);
+  }
+
+  &.active {
+    border-left-color: $yellow;
+  }
+}
+
+.nav-item {
+  @include item();
+  font-size: 21px;
+}
+
+.nav-subitem {
+  @include item;
+  color: $gray9B;
+  font-size: 14px;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+.nav-item-text {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.nav-item-count {
+  align-items: center;
+  background: $green;
+  border: 2px solid $grayE8;
+  border-radius: 50%;
+  display: flex;
+  font-size: 18px;
+  grid-column: 2;
+  grid-row: 1;
+  height: 30px;
+  justify-content: center;
+  justify-self: end;
+  width: 30px;
+}
+
+.nav-item-pill {
+  background: $blue;
+  border-radius: 50%;
+  display: inline-block;
+  height: 7px;
+  margin-right: 7px;
+  width: 7px;
 }

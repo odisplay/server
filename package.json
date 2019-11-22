@@ -16,6 +16,8 @@
     "start": "ls src/**/*.hs | entr -s \"pkill server; stack run &\"",
     "stack:run": "command -v entr 2>&- >&2 && yarn start || stack run",
     "sass:run": "sass ./src/index.scss:static/styles.css --watch",
-    "sass:build": "sass ./src/index.scss:static/styles.css --style compressed --no-source-map"
+    "sass:build": "sass ./src/index.scss ./static/styles.min.css --style compressed --no-source-map",
+    "predeploy": "yarn sass:build",
+    "deploy": "git push heroku master"
   }
 }

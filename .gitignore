@@ -1,6 +1,4 @@
 .stack-work/
 node_modules/
 server.cabal
-static/*.css
-static/*.map
 *~

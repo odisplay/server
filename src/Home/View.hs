@@ -9,11 +9,13 @@ import           Text.Blaze.Html5.Attributes
 
 import           Shared.View
 import           Nav.View                      as Nav
+import           Aside.View                    as Aside
 
 render :: View
 render = renderView $ do
   head $ do
-    title "Home"
+    title "Odisplay server"
     link ! rel "stylesheet" ! href "/static/styles.css"
   body $ do
     Nav.view
+    Aside.view

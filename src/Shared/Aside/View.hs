@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Aside.View where
+module Shared.Aside.View where
 
 import           Prelude                 hiding ( div
                                                 , span

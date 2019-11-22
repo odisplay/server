@@ -1,4 +1,4 @@
-module Shared.View where
+module Shared.ViewUtils where
 
 import           Data.Text.Lazy.Encoding        ( decodeUtf8 )
 import qualified Web.Scotty                    as S

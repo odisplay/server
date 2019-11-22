@@ -1,6 +1,6 @@
 module Home.Handler where
 
-import           Shared.View                    ( View )
+import           Shared.ViewUtils               ( View )
 import           Home.View                     as Home
 
 handle :: View

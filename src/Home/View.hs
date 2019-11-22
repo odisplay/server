@@ -18,7 +18,7 @@ render :: View
 render = renderView $ do
   head $ do
     title "Odisplay server"
-    link ! rel "stylesheet" ! href "/static/styles.min.css"
+    link ! rel "stylesheet" ! href "/static/styles.css"
   body $ do
     Nav.view
     Aside.view

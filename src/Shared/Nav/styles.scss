@@ -1,21 +1,28 @@
 @import "../theme";
+@import "../media";
 
-.nav-container {
+.nav {
   background: $black;
   color: $white;
   display: grid;
+  grid-auto-flow: rows;
+  grid-auto-rows: max-content;
   grid-column: 1;
   grid-row: 1 / span 2;
-  grid-template-rows: 190px 1fr;
+  grid-template-rows: 190px;
+
+  @include media(md) {
+    grid-template-rows: 50px;
+  }
+
+  @include media(sm) {
+    display: none;
+  }
 }
 
 .nav-logo {
   background: $yellow;
   grid-row: 1;
-}
-
-.nav {
-  grid-row: 2;
 }
 
 @mixin item {
@@ -35,6 +42,12 @@
   &.active {
     border-left-color: $yellow;
   }
+
+  @include media(md) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 10px;
+  }
 }
 
 .nav-item {
@@ -48,11 +61,19 @@
   font-size: 14px;
   font-weight: 100;
   margin-top: 0;
+
+  @include media(md) {
+    display: none;
+  }
 }
 
 .nav-item-text {
   grid-column: 2;
   grid-row: 1;
+
+  @include media(md) {
+    display: none;
+  }
 }
 
 .nav-item-count {
@@ -68,6 +89,10 @@
   justify-content: center;
   justify-self: end;
   width: 30px;
+
+  @include media(md) {
+    display: none;
+  }
 }
 
 .nav-item-pill {

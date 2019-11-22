@@ -1,4 +1,5 @@
 @import "../theme";
+@import "../media";
 
 @mixin hoverable {
   transition-duration: 200ms;
@@ -19,6 +20,25 @@
   grid-row: 1;
   grid-template-columns: repeat(2, max-content) 1fr;
   padding-right: 30px;
+
+  @include media(lg) {
+    grid-template-columns: max-content 1fr;
+  }
+
+  @include media(sm) {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+}
+
+.aside-burger {
+  align-self: center;
+  display: none;
+  padding: 0 15px;
+
+  @include media(sm) {
+    display: block;
+  }
 }
 
 .aside-account {
@@ -27,6 +47,11 @@
   grid-column-gap: 15px;
   grid-template-columns: 50px 1fr;
   padding-left: 15px;
+
+  @include media(sm) {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
 }
 
 .aside-account-icon {
@@ -37,6 +62,15 @@
   img {
     height: 35px;
     width: 35px;
+
+    @include media(sm) {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @include media(sm) {
+    align-self: center;
   }
 }
 
@@ -46,6 +80,10 @@
   font-weight: bold;
   grid-column: 2;
   margin-right: 30px;
+
+  @include media(sm) {
+    display: none;
+  }
 }
 
 .aside-info {
@@ -54,6 +92,10 @@
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 20px 1fr;
+
+  @include media(lg) {
+    display: none;
+  }
 }
 
 .aside-info-arrow {
@@ -89,4 +131,10 @@
   grid-column-gap: 10px;
   grid-template-columns: max-content;
   padding: 0 15px;
+
+  @include media(sm) {
+    div {
+      display: none;
+    }
+  }
 }

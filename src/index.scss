@@ -1,4 +1,6 @@
 @import "./Shared/theme";
+@import "./Shared/media";
+
 @import "./Shared/Nav/styles";
 @import "./Shared/Aside/styles";
 @import "./Shared/Main/styles";
@@ -44,6 +46,14 @@ body {
   right: 0;
   top: 0;
   width: 100vw;
+
+  @include media(md) {
+    grid-template-columns: 80px 1fr;
+  }
+
+  @include media(sm) {
+    grid-template-columns: max-content 1fr;
+  }
 }
 
 a {

@@ -13,6 +13,7 @@ import           Text.Blaze.Html5.Attributes
 
 view :: Html
 view = aside ! class_ "aside" $ do
+  div ! class_ "aside-burger" $ a ! href "#" $ img ! src "#"
   a ! class_ "aside-account" ! href "#" $ do
     div ! class_ "aside-account-icon" $ img ! src "#"
     div "Mon compte" ! class_ "aside-account-label"

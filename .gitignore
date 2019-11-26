@@ -1,4 +1,10 @@
 .stack-work/
+.psc-package/
+.psc-ide-port
+static/*.css
+static/*.map
+static/*.js
+output/
 node_modules/
 server.cabal
 *~

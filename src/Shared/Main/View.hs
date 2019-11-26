@@ -6,4 +6,6 @@ import           Text.Blaze.Html5        hiding ( style )
 import           Text.Blaze.Html5.Attributes
 
 view :: Html -> Html
-view = main ! class_ "main"
+view children = do
+  link ! rel "stylesheet" ! href "/static/main.css"
+  main children ! class_ "main"

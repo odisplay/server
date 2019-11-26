@@ -1,0 +1,14 @@
+{
+  "name": "toto",
+  "set": "psc-0.13.4",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "console",
+    "effect",
+    "prelude",
+    "psci-support",
+    "web-dom",
+    "web-events",
+    "web-html"
+  ]
+}

@@ -23,3 +23,4 @@ render = renderView $ do
     Nav.view
     Aside.view
     Main.view $ h1 "Home"
+    script "" ! src "/static/home.js"

@@ -6,8 +6,7 @@
   "devDependencies": {
     "prettier": "^1.19.1",
     "prettier-stylelint": "^0.4.2",
-    "psc-package": "^3.0.1",
-    "purescript": "^0.13.5",
+    "pulp": "^13.0.0",
     "sass": "^1.23.7",
     "stylelint": "^12.0.0",
     "stylelint-config-recommended": "^3.0.0",
@@ -16,17 +15,16 @@
     "yarn-run-all": "^3.1.1"
   },
   "scripts": {
-    "start": "find src -name '*.hs' | entr -s \"pkill server; stack run &\"",
-    "stack:run": "command -v entr 2>&- >&2 && yarn start || stack run",
-    "sass:run": "sass ./src/index.scss:static/styles.css --watch",
-    "sass:build": "sass ./src/index.scss ./static/styles.css --style compressed --no-source-map",
-    "predeploy": "yarn sass:build",
+    "start": "run-p -y scotty:watch style:watch script:watch",
+    "scotty:watch": "command -v entr 2>&- >&2 && yarn start || stack run",
+    "style:watch:nav": "sass ./src/Shared/Nav/styles.scss:static/nav.css --watch",
+    "style:watch:aside": "sass ./src/Shared/Aside/styles.scss:static/aside.css --watch",
+    "style:watch:main": "sass ./src/Shared/Main/styles.scss:static/main.css --watch",
+    "style:watch:home": "sass ./src/Home/styles.scss:static/home.css --watch",
     "script:watch:nav": "pulp -w --psc-package browserify -m Nav.Main -t ./static/nav.js -O",
-    "style:build:nav": "sass ./src/Shared/Nav/styles.scss ./static/nav.css",
-    "style:build:aside": "sass ./src/Shared/Aside/styles.scss ./static/aside.css",
-    "style:build:main": "sass ./src/Shared/Main/styles.scss ./static/main.css",
-    "style:build:home": "sass ./src/Home/styles.scss ./static/home.css",
-    "style:build": "run-p -s style:build:*",
+    "script:watch:home": "pulp -w --psc-package browserify -m Home.Main -t ./static/home.js -O",
+    "style:watch": "run-p -y style:watch:*",
+    "script:watch": "run-p -y script:watch:*",
     "deploy": "git push heroku master"
   }
 }

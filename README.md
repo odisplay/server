@@ -22,8 +22,8 @@
 
 ```bash
 git clone git@github.com:odisplay/server.git
+yarn global add purescript psc-package
 yarn install
-stack setup
 stack build
 ```
 
@@ -32,6 +32,5 @@ stack build
 ## Development
 
 ```bash
-yarn stack:run
-yarn sass:run
+yarn start
 ```

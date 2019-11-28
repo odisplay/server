@@ -21,11 +21,25 @@
     "style:watch:aside": "sass ./src/Shared/Aside/styles.scss:static/aside.css --watch",
     "style:watch:main": "sass ./src/Shared/Main/styles.scss:static/main.css --watch",
     "style:watch:home": "sass ./src/Home/styles.scss:static/home.css --watch",
+    "style:build:nav": "sass -s compressed --no-source-map ./src/Shared/Nav/styles.scss:static/nav.css",
+    "style:build:aside": "sass -s compressed --no-source-map ./src/Shared/Aside/styles.scss:static/aside.css",
+    "style:build:main": "sass -s compressed --no-source-map ./src/Shared/Main/styles.scss:static/main.css",
+    "style:build:home": "sass -s compressed --no-source-map ./src/Home/styles.scss:static/home.css",
     "script:watch:nav": "pulp -w --psc-package browserify -m Nav.Main -t ./static/nav.js -O",
     "script:watch:aside": "pulp -w --psc-package browserify -m Aside.Main -t ./static/aside.js -O",
     "script:watch:home": "pulp -w --psc-package browserify -m Home.Main -t ./static/home.js -O",
+    "script:build:nav": "pulp --psc-package browserify -m Nav.Main -t ./static/nav.js -O",
+    "script:build:aside": "pulp --psc-package browserify -m Aside.Main -t ./static/aside.js -O",
+    "script:build:home": "pulp --psc-package browserify -m Home.Main -t ./static/home.js -O",
     "style:watch": "run-p -y style:watch:*",
+    "style:build": "run-p -y style:build:*",
     "script:watch": "run-p -y script:watch:*",
-    "deploy": "git push heroku master"
+    "script:build": "run-p -y script:build:*",
+    "build": "run-p -y script:build style:build",
+    "prepackage": "yarn build",
+    "package": "tar cvzf server.tar.gz static -C $(dirname $(find .stack-work/install -name 'server')) server",
+    "predeploy": "yarn package",
+    "deploy": "heroku container:push web",
+    "postdeploy": "heroku container:release web"
   }
 }

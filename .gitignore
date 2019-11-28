@@ -7,4 +7,5 @@ static/*.js
 output/
 node_modules/
 server.cabal
+server.tar.gz
 *~

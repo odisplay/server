@@ -4,6 +4,7 @@ module Shared.Aside.View where
 
 import           Prelude                 hiding ( div
                                                 , span
+                                                , id
                                                 )
 import           Text.Blaze.Html5        hiding ( style )
 import           Text.Blaze.Html5.Attributes
@@ -15,7 +16,7 @@ view :: Html
 view = do
   link ! rel "stylesheet" ! href "/static/aside.css"
   aside ! class_ "aside" $ do
-    div ! class_ "aside-burger" $ a ! href "#" $ img ! src "#"
+    div ! class_ "aside-burger" $ a ! id "burger" ! href "#" $ img ! src "#"
     a ! class_ "aside-account" ! href "#" $ do
       div ! class_ "aside-account-icon" $ img ! src "#"
       div "Mon compte" ! class_ "aside-account-label"
@@ -34,3 +35,4 @@ view = do
       img ! src "#"
       div $ text "Se déconnecter"
     a ! class_ "aside-nav-item" ! href "#" $ img ! src "#"
+  script "" ! src "/static/aside.js"

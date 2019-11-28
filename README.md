@@ -14,7 +14,7 @@
 - [Git](https://git-scm.com)
 - [Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/)
 - [Yarn](https://yarnpkg.com/lang/en/)
-- [entr](http://eradman.com/entrproject/) *optional*
+- [entr](http://eradman.com/entrproject/)
 
 *Note: entr is used to reload server on haskell files change*
 

@@ -35,6 +35,7 @@
   align-self: center;
   display: none;
   padding: 0 15px;
+  z-index: 1;
 
   @include media(sm) {
     display: block;

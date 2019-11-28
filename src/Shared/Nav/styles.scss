@@ -10,13 +10,26 @@
   grid-column: 1;
   grid-row: 1 / span 2;
   grid-template-rows: 190px;
+  min-width: 80px;
+  transition-duration: 250ms;
+  transition-property: left, box-shadow;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 
   @include media(md) {
     grid-template-rows: 50px;
   }
 
   @include media(sm) {
-    display: none;
+    bottom: 0;
+    box-shadow: none;
+    left: -80px;
+    position: fixed;
+    top: 0;
+
+    &[data-visible] {
+      box-shadow: 5px 0 10px rgba($black, 0.25);
+      left: 0;
+    }
   }
 }
 
